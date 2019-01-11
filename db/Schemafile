@@ -1,6 +1,23 @@
 create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.boolean :verified, default: false, null: false
   t.string :name
   t.string :email
+  t.string :current_company_name
+  t.integer :gender
+  t.string :phone_number
+  t.string :mobile_number
+  t.date   :birthday
+  t.string :address
+  t.integer :current_monthly_salary
+  t.integer :expected_monthly_salary
+  t.date :availability_on
+  t.boolean :availability, default: false, null: false
+  t.datetime :last_updated_at
+  t.datetime :created_at, null: false
+  t.datetime :updated_at, null: false
+  t.text :note
+
+  # TODO delete columns if fix seeds 
   t.string :company
   t.string :address
   t.string :city
@@ -13,6 +30,4 @@ create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSE
   t.integer :followers, default: 0
   t.string :name
   t.string :note
-
-  t.timestamps
 end
