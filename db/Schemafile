@@ -17,7 +17,7 @@ create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSE
   t.datetime :updated_at, null: false
   t.text :note
 
-  # TODO delete columns if fix seeds 
+  # TODO delete columns if fix seeds
   t.string :company
   t.string :address
   t.string :city
@@ -30,4 +30,8 @@ create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSE
   t.integer :followers, default: 0
   t.string :name
   t.string :note
+end
+
+create_table "work_experiences", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  t.integer "contact_id", null: false
 end
