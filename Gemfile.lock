@@ -65,6 +65,7 @@ GEM
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     debug_inspector (0.0.3)
+    diffy (3.3.0)
     erubi (1.8.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -146,6 +147,9 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    ridgepole (0.6.6)
+      activerecord (>= 4.2, < 6)
+      diffy
     sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -206,6 +210,7 @@ DEPENDENCIES
   quiet_assets
   rails (~> 4.2.0)
   rails_layout
+  ridgepole
   sass-rails
   simple_form
   slim-rails

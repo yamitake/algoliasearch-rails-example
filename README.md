@@ -32,6 +32,7 @@ Populate your DB and start indexing
 --------------------------------------
 *  Create your ```config/application.yml``` based on ```config/application.example.yml``` with your [Algolia](http://www.algolia.com) credentials
 *  ```bundle exec rake db:migrate```
+*  ```bundle exec ridgepole -c config/database.yml -E development --apply -f db/Schemafile```` if use ridgepole
 *  ```bundle exec rake db:seed```
 
 Start the application
