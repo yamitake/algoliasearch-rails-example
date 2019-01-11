@@ -1,0 +1,53 @@
+$(document).ready(function() {
+  var hitTemplate = '<div class="hit-instant-search">' +
+    '<div class="company">{{{_highlightResult.company.value}}}</div>' +
+    '<div class="name">{{{_highlightResult.name.value}}}</div>' +
+    '<div class="created_at">{{{created_at}}}</div>' +
+    '<div class="email"><a href="mailto:{{{_highlightResult.email.value}}}">{{{_highlightResult.email.value}}}</a></div>' +
+  '</div>';
+
+  var search = instantsearch({
+    appId: '<%= ENV['ALGOLIASEARCH_APPLICATION_ID'] %>',
+    apiKey: '<%= ENV['ALGOLIASEARCH_API_KEY_SEARCH'] %>',
+    indexName: '<%= Contact.index_name %>',
+    urlSync: true
+  });
+
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#q',
+      placeholder: 'Search for contacts',
+      autofocus: false,
+      poweredBy: true
+    })
+  );
+
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#hits',
+      templates: {
+        empty: 'No results',
+        item: hitTemplate
+      },
+      hitsPerPage: 10
+    })
+  );
+
+  search.addWidget(
+    instantsearch.widgets.refinementList({
+      container: '#companies',
+      attributeName: 'company',
+      limit: 10,
+      templates: {
+        header: 'Companies'
+      },
+      cssClasses: {
+        root: 'list-group',
+        item: 'list-group-item',
+        count: 'badge pull-right'
+      }
+    })
+  );
+
+  search.start();
+});

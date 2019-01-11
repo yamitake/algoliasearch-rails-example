@@ -1,0 +1,20 @@
+- content_for :title do
+  | Instant-search2
+h1 Instant-search example
+.well
+  | A
+  code Google-like
+  | instant-search results page based on
+  div.succeed
+    a href="https://community.algolia.com/instantsearch.js"
+      code instantsearch.js
+.container
+  .row
+    .col-sm-6.col-sm-offset-3
+      input#q.form-control type="text" /
+  .row
+    #facets.col-sm-3
+      #companies
+    #hits.col-sm-9
+script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"
+script = render 'pages/scripts'
